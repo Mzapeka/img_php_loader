@@ -1,12 +1,12 @@
 {
-  "name": "Mzapeka/ImgLoader",
+  "name": "mzapeka/img_php_loader",
     "type": "library",
-  "description": "Simple loader of images from remoute hosts",
+  "description": "Simple loader of images from remote hosts",
     "keywords": [
       "Mzapeka",
       "ImgLoader"
     ],
-  "homepage": "https://github.com/Mzapeka/ImgLoader",
+  "homepage": "https://github.com/mzapeka/img_php_loader",
     "license": "MIT",
     "authors": [
         {
@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "php" : "~5.6|~7.0"
+      "php": ">=7.1"
     },
     "require-dev": {
         "phpunit/phpunit" : ">=5.4.3",
