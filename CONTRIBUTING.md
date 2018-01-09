@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/:vendor/:package_name).
+We accept contributions via Pull Requests on [Github](https://github.com/Mzapeka/ImgLoader).
 
 
 ## Pull Requests
@@ -25,7 +25,7 @@ We accept contributions via Pull Requests on [Github](https://github.com/:vendor
 ## Running Tests
 
 ``` bash
-$ composer test
+$ phpunit
 ```
 
 

@@ -1,3 +1,9 @@
 build
 composer.lock
 vendor
+index.php
+test_folder
+vagrant
+.vagrant
+Vagrantfile
+.idea

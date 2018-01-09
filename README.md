@@ -1,4 +1,4 @@
-# :package_name
+# ImgLoader 
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -7,47 +7,59 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-**Note:** Replace ```:author_name``` ```:author_username``` ```:author_website``` ```:author_email``` ```:vendor``` ```:package_name``` ```:package_description``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+This package is oriented for simple loading images from remote hosts via HTTP protocol. It uses [PSR-7](http://www.php-fig.org/psr/psr-7/).
 
-## Structure
+## Requirements
 
-If any of the following are applicable to your project, then the directory structure should follow industry best practices by being named the following.
+Minimum PHP 7.1 is required.
+
+CURL extension are needed.
+
+This package uses some non-stable packages, so you must set your project's minimum stability to something like beta or dev in `composer.json`:
 
 ```
-bin/        
-config/
-src/
-tests/
-vendor/
+"minimum-stability": "dev",
+"prefer-stable": true
 ```
 
+If you don't the installation procedure below will fail.
 
 ## Install
 
-Via Composer
+This adapter satisfies the requirement for client-implementation and will make it possible to install the client with:
 
-``` bash
-$ composer require :vendor/:package_name
+```bash
+composer require mzapeka/img_php_loader
 ```
 
-## Usage
+## Usage - simple
 
-``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
+Simplest possible use case:
+
+```php
+$imgLoader = new ImgLoader();
+try {
+        //setup the path to folder with images
+    $imgLoader->setPicFolder('test_folder');
+        //setup the URL of remout host with images
+    $imgLoader->setUrl('https://test.com/catalog/index.php');
+    $imgLoader->uploadImages();
+} catch (Exception $e){
+    echo $e->getMessage();
+}
 ```
 
-## Change log
+That's it, this is all you need to get started.
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Testing
 
-``` bash
-$ composer test
+Just run PHPUnit in the root folder of the cloned project.
+Some calls do require an internet connection (see `tests/Factory/EntityTest`).
+
+```bash
+phpunit
 ```
 
 ## Contributing
@@ -56,28 +68,28 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT
 
 ## Security
 
-If you discover any security related issues, please email :author_email instead of using the issue tracker.
+If you discover any security related issues, please email mzapeka@gmail.com instead of using the issue tracker.
 
 ## Credits
 
-- [:author_name][link-author]
+- [Mykola Zapeka][link-author]
 - [All Contributors][link-contributors]
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/:vendor/:package_name.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/Mzapeka/ImgLoader.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/:vendor/:package_name/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/:vendor/:package_name.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/:vendor/:package_name.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/:vendor/:package_name.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/Mzapeka/ImgLoader/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/Mzapeka/ImgLoader.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/Mzapeka/ImgLoader.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/Mzapeka/ImgLoader.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/:vendor/:package_name
-[link-travis]: https://travis-ci.org/:vendor/:package_name
-[link-scrutinizer]: https://scrutinizer-ci.com/g/:vendor/:package_name/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/:vendor/:package_name
-[link-downloads]: https://packagist.org/packages/:vendor/:package_name
-[link-author]: https://github.com/:author_username
+[link-packagist]: https://packagist.org/packages/Mzapeka/ImgLoader
+[link-travis]: https://travis-ci.org/Mzapeka/ImgLoader
+[link-scrutinizer]: https://scrutinizer-ci.com/g/Mzapeka/ImgLoader/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/Mzapeka/ImgLoader
+[link-downloads]: https://packagist.org/packages/Mzapeka/ImgLoader
+[link-author]: https://github.com/Mzapeka
 [link-contributors]: ../../contributors
